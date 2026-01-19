@@ -2,8 +2,7 @@ import yt_dlp
 import os
 from datetime import datetime
 
-date = str(datetime.now()) # get current date, in format YYYY-MM-DD
-date = date[:10]
+date = str(datetime.now())[:10] # get current date in format YYYY-MM-DD ; first 10 characters
 
 # create folder "YYYY-MM-DD_MUSIC" in parent dir and separate folders for each playlist
 savePath: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"{date}_MUSIC/%(playlist_title)s")
@@ -25,12 +24,18 @@ def main():
         'ignoreerrors': False,                     # ignores errors
         'nopart': True,                            # download whole files
         '--no-overwrites': True,                   # don't overwrite existing files
-
-        '--download-archive downloaded.txt': True  #.txt file for downloaded files
     }
+    #To do:
+    # in every playlist folder: create a txt wit hall the downloaded tracks
+
+    #for EACH PLAYLIST:
+    # compare the availible tracks in the playlist url ; download only tracks which aren't in the txt
+
 
     with yt_dlp.YoutubeDL(ydl_options) as ydl: # apply Yt Dlp options and download
         ydl.download(urlsList)
+
+
 
 if __name__ == '__main__': # if script is directly run: execute script
     main()
