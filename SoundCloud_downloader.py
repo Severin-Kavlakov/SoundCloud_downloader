@@ -26,15 +26,12 @@ def main():
         '--no-overwrites': True,                   # don't overwrite existing files
     }
     #To do:
-    # in every playlist folder: create a txt wit hall the downloaded tracks
+    # in every playlist folder: create a txt with all the downloaded tracks
 
     #for EACH PLAYLIST:
-    # compare the availible tracks in the playlist url ; download only tracks which aren't in the txt
-
-
+    # compare the available tracks in the playlist url ; download only tracks which aren't in the txt
     with yt_dlp.YoutubeDL(ydl_options) as ydl: # apply Yt Dlp options and download
         ydl.download(urlsList)
-
 
 
 if __name__ == '__main__': # if script is directly run: execute script
