@@ -9,13 +9,13 @@ import yt_dlp
 import os
 from datetime import datetime
 
-date = str(datetime.now())[:10] # get current date in format YYYY-MM-DD (first 10 characters)
+date = str(datetime.now())[:10] # get current date in format YYYY-MM-DD - first 10 characters from datetime
 
-# create folder "YYYY-MM-DD_MUSIC" in parent dir and separate folders for each playlist
-savePath: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"gitignored_MUSIC/MUSIC/%(playlist_title)s") # f"gitignored_MUSIC/2026_01_18_MUSIC/{date}_MUSIC/%(playlist_title)s")
+# make folder "YYYY-MM-DD_MUSIC" in parent dir and separate folders for each playlist
+savePath: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"gitignored_MUSIC/MUSIC/%(playlist_title)s")
 
-# Final format template to import into yt-dlp # NumberOfTrackInPlaylist Title.original-extension
-outputTemplate: str = os.path.join(savePath, "%(playlist_index)s_%(title)s.%(ext)s") # ;;;; "%(playlist_index)s %(title)s.%(ext)s")
+# Final format template to import into yt-dlp
+outputTemplate: str = os.path.join(savePath, "%(playlist_index)s_%(title)s.%(ext)s") # ideally "%(playlist_index)s %(title)s.%(ext)s"
 
 # Read urls.txt file - URLS ON SEPARATE LINES
 with open( "urls.txt", "r", buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None) as urlsTxt:
