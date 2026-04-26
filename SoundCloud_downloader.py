@@ -12,7 +12,7 @@ from datetime import datetime
 date = str(datetime.now())[:10] # get current date in format YYYY-MM-DD - first 10 characters from datetime
 
 # make folder "YYYY-MM-DD_MUSIC" in parent dir and separate folders for each playlist
-savePath: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"gitignored_MUSIC/MUSIC/%(playlist_title)s")
+savePath: str = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"gitignore_SoundCloud_all_music/MUSIC/%(playlist_title)s")
 
 # Final format template to import into yt-dlp
 outputTemplate: str = os.path.join(savePath, "%(playlist_index)s_%(title)s.%(ext)s") # ideally "%(playlist_index)s %(title)s.%(ext)s"
